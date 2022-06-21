@@ -3,6 +3,8 @@ import koaCors from 'koa2-cors';
 import bodyParser from 'koa-bodyparser';
 import dotenv from 'dotenv';
 
+import {registerRoutes} from "./routes";
+
 dotenv.config();
 
 async function serverSetup() {
@@ -15,6 +17,10 @@ async function serverSetup() {
 function middleware(server : Koa) {
     server.use(bodyParser());
     server.use(koaCors());
+
+    const routes = registerRoutes().routes();
+
+    server.use(routes);
 };
 
 async function startServer(server : Koa) {
@@ -30,7 +36,7 @@ async function startServer(server : Koa) {
         
     } catch (err) {
         console.log(err);
-        
+        return err
     }
 };
 

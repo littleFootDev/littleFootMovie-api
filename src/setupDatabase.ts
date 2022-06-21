@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 const password = process.env.DATABASE_PASSWORD;
-console.log(password);
 
 async function databaseSetup() {
     const connected: boolean = await connectToDatabase();

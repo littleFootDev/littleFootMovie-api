@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
 export interface IMovie extends mongoose.Document {
-    id: string;
+    id?: string;
     title: string;
-    genre: string[];
+    genre?: string[];
     overview: string
     original_title: string;
     original_language: string;
@@ -12,8 +12,8 @@ export interface IMovie extends mongoose.Document {
     vote_count: number;
     vote_average: number;
     adults: boolean;
-    backdrop_path : string;
-    poster_path : string;
+    backdrop_path? : string;
+    poster_path? : string;
     video: boolean;
 
 }
